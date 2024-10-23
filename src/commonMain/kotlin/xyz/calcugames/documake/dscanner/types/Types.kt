@@ -6,6 +6,16 @@ package xyz.calcugames.documake.dscanner.types
 object Types {
 
     /**
+     * Represents a dynamic type from a programming language that does not have explicit types.
+     */
+    val DYNAMIC = TypeData(
+        isNumber = false,
+        isVoid = false,
+        maxBitSize = -1,
+        Any::class
+    )
+
+    /**
      * Represents a [String] type.
      */
     val STRING = TypeData(
