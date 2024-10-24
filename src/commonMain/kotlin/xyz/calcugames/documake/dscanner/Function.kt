@@ -1,5 +1,6 @@
 package xyz.calcugames.documake.dscanner
 
+import xyz.calcugames.documake.dscanner.parser.Element
 import xyz.calcugames.documake.dscanner.types.TypeData
 import xyz.calcugames.documake.dscanner.types.Typed
 
@@ -7,10 +8,7 @@ import xyz.calcugames.documake.dscanner.types.Typed
  * Represents a function in a programming language.
  */
 data class Function(
-    /**
-     * The name of the function.
-     */
-    val name: String,
+    override val name: String,
     /**
      * The parameters of the function.
      */
@@ -22,21 +20,22 @@ data class Function(
     /**
      * The return type of the function.
      */
-    val returnType: ReturnType
-)
+    val returnType: ReturnType,
+    /**
+     * The raw code block of the function as shown in its language.
+     */
+    val code: String
+) : Element
 
 /**
- * Represnets a parameter of a function.
+ * Represents a parameter of a function.
  */
 data class Parameter(
-    /**
-     * The name of the parameter.
-     */
-    val name: String,
+    override val name: String,
     override val type: String,
     override val fullType: String,
     override val typeData: TypeData
-) : Typed
+) : Typed, Element
 
 /**
  * Represents the return type of the function.
