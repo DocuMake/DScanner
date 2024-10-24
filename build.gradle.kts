@@ -87,6 +87,11 @@ kotlin {
     watchosArm64()
 
     sourceSets {
+        commonMain.dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+            implementation("io.github.oshai:kotlin-logging:7.0.0")
+        }
+
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
